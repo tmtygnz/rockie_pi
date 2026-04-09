@@ -1,0 +1,9 @@
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.format]
+indent-style = "tab"
+
+[tool.black]
+line-length = 88
+skip-string-normalization = true
