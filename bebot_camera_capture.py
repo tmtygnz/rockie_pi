@@ -15,7 +15,7 @@ class CameraCapture:
 	def getImageBytes(self):
 		ret, img = self.capturer.read()
 		if ret:
-			image_png, buf = cv.imencode(".jpg", img, [cv.IMWRITE_JPEG_QUALITY, 10])
+			image_png, buf = cv.imencode(".jpg", img, [cv.IMWRITE_JPEG_QUALITY, 70])
 
 			return buf.tobytes()
 		else:
