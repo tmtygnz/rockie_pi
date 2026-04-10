@@ -17,7 +17,7 @@ class Message:
 
 class GuestNet:
 	def __init__(self):
-		self.socket = pynng.Pair1(dial="tcp://127.0.0.1:5555")
+		self.socket = pynng.Pair1(dial="tcp://192.168.100.53:5555")
 
 	def send_data(self, to: str, content: Union[str, bytes]):
 		tbs = msgpack.packb(Message(to, content).to_dict())
