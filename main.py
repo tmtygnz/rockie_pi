@@ -27,7 +27,7 @@ async def send_telemetry(v, p, r, y):
 		asyncio.to_thread(network.send_data, "estivel", str(v)),
 		asyncio.to_thread(network.send_data, "pitch", str(p)),
 		asyncio.to_thread(network.send_data, "roll", str(r)),
-		asyncio.to_thread(network.send_data, "yaw", str(y)),
+		# asyncio.to_thread(network.send_data, "yaw", str(y)),
 	]
 
 	await asyncio.gather(*tasks)
@@ -42,7 +42,6 @@ async def send_camera():
 def parse_line(line):
 	try:
 		v, p, r, y = map(float, line.split(","))
-		print(v, p, r, y)
 		return v, p, r, y
 	except:
 		return 0, 0, 0, 0

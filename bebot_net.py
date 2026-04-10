@@ -2,6 +2,7 @@ import json
 from dataclasses import dataclass
 from typing import Union
 
+import msgpack
 import pynng
 
 
@@ -19,7 +20,7 @@ class GuestNet:
 		self.socket = pynng.Pair1(dial="tcp://127.0.0.1:5555")
 
 	def send_data(self, to: str, content: Union[str, bytes]):
-		tbs = json.dumps(Message(to, content).to_dict()).encode("utf-8")
+		tbs = msgpack.packb(Message(to, content).to_dict())
 		self.socket.send(tbs)
 
 	def send_data_raw(self, data):
